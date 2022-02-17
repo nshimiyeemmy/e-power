@@ -27,7 +27,9 @@
         "joi": "^17.6.0",
         "mongoose": "^5.8.10",
         "nodemon": "^2.0.15",
-        "supertest": "^6.2.1",
         "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "supertest": "^6.2.2"
     }
 }

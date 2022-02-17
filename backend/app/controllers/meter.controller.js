@@ -95,7 +95,7 @@ exports.loadToken = async (req, res) => {
         res.send({
           message: `${added} days added, now you have ${
             daysBefore + added
-          } days remanining`,
+          } days remaining`,
         });
       }
     })
@@ -180,7 +180,7 @@ exports.delete = (req, res) => {
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete Meter with id=${id}. Maybe Meter was not found!`,
+          message: "Could not delete Meter with number=" + number
         });
       } else {
         res.send({

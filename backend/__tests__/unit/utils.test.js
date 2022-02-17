@@ -1,4 +1,4 @@
-const {generateMeterNumber,getTokenExpirationDate,validateUUID,getDaysDifference} = require("../app/utils/imports");
+const {generateMeterNumber,getTokenExpirationDate,validateUUID,getDaysDifference} = require("../../app/utils/imports");
 
 describe("generateMeterNumber function", () => {
     it("Should return a six digit number", () => {

@@ -5,7 +5,6 @@ var schema = mongoose.Schema(
     code: String,
     meter_number: { type: String, ref: "meter" },
     total_amount: Number,
-    endDate: Date,
     status: {
       type: String,
       enum: ["unused", "used"],
