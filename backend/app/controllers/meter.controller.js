@@ -135,7 +135,7 @@ exports.getMeterDetails = (req, res) => {
           res.status(404).send({
             message: "Not found Meter with number " + number,
           });
-        else return res.send({message: `You have ${getDaysDifference(data.power_expiration_time)} days remaning`});
+        else return res.send({message: `You have ${getDaysDifference(data.power_expiration_time)} days remaining`});
       })
       .catch((err) => {
         res.status(500).send({
