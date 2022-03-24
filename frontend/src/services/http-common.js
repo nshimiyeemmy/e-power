@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const domain ="http://backend:5000"
+export const domain =""
 
 
 const http = axios.create ({
