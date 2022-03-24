@@ -2,21 +2,32 @@ version: '3'
 
 services:
   frontend:
+    image: izabayo7/e-powerfrontend:latest
     build: ./frontend/
     ports:
-      - "8081:8080"
+      - "3000:3000"
     depends_on:
       - "backend"
     links:
       - backend
 
   backend:
+    image: izabayo7/e-powerbackend:latest
     build: ./backend/
     ports:
       - "5000:8080"
     depends_on:
       - "mongo"
   mongo:
-    image: mongo
+    image: izabayo7/e-powerdb:latest
+    build: ./
     ports:
       - 27017:27017
+
+  nginx:
+    image: "izabayo7/e-powernginx:latest"
+    build: ./nginx/
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"
