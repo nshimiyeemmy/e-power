@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
+import http from "../services/http-common";
 
 const Buy = () => {
   const [meter, setMeter] = useState({
@@ -45,6 +46,24 @@ const Buy = () => {
     }
   }, [meter.amount, meter.meterNumber]);
 
+  const buyElectricity = async (e)=>{
+    e.preventDefault()
+    http.post("/token", {
+      meter_number: meter.meterNumber,
+      total_amount: meter.amount
+    }).then((res)=>{
+
+    }).catch(e=>{
+        setErrors((prev) => ({
+          ...prev,
+          meterNumber: e.message,
+        }));
+      
+    })
+
+    console.log(response)
+  }
+
   return (
     <React.Fragment>
       <Header title="With this page pay for your eclecricity token" />
@@ -52,7 +71,7 @@ const Buy = () => {
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center">
             <div className="w-full max-w-md pt-7">
-              <form className="bg-white rounded px-12 pt-6 pb-8 mb-4 border-2 border-zinc-700">
+              <form className="bg-white rounded px-12 pt-6 pb-8 mb-4 border-2 border-zinc-700" onSubmit={buyElectricity}>
                 <div className="text-xl mt-1 mb-5 font-bold text-center text-[#23af3f]">
                   E-Power
                 </div>
