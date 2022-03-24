@@ -1,0 +1,25 @@
+version: '3' # specify docker-compose version
+
+services:
+  frontend: # name of the first service
+    build: ./frontend/ # specify the directory of the Dockerfile
+    ports:
+      - "8081:8080" # maps port 4200 on localhost to 80 in container
+    depends_on:
+      - "express"
+    links:
+      - express
+
+  backend: # name of the second service
+    build: ./backend/ # specify the directory of the Dockerfile
+    ports:
+      - "5000:5000" # maps port 8000 on localhost to 8000 in container
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+ mongodb:
