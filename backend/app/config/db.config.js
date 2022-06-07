@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mongodb://mongo:27017/e-power",
+  url: 'mongodb://db:27017/e-power',
 };
